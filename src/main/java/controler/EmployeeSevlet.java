@@ -59,11 +59,11 @@ public class EmployeeSevlet extends HttpServlet {
     }
     private void createGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("departments", departmentService.findAll());
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/employee/create.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/create.jsp");
         requestDispatcher.forward(request, response);
     }
     private void createPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int id = Integer.parseInt(request.getParameter("departments"));
+        int id = Integer.parseInt(request.getParameter("id_department"));
         if (departmentService.checkById(id)) {
             employeeService.updateEmployee(request);
             response.sendRedirect("/employee");
@@ -74,7 +74,7 @@ public class EmployeeSevlet extends HttpServlet {
     private void updateGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         if (employeeService.checkById(id)) {
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/employee/update.jsp");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/update.jsp");
             request.setAttribute("employee", employeeService.getById(id));
             request.setAttribute("departments", departmentService.findAll());
             requestDispatcher.forward(request, response);
@@ -88,7 +88,7 @@ public class EmployeeSevlet extends HttpServlet {
 
         if (employeeService.checkById(id) && departmentService.checkById(departmentId)) {
             employeeService.updateEmployee(request);
-            response.sendRedirect("/employees");
+            response.sendRedirect("/employee");
         } else {
             response.sendRedirect("/404.jsp");
         }

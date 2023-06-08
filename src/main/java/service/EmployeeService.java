@@ -5,6 +5,7 @@ import model.Department;
 import model.Employee;
 
 import javax.servlet.http.HttpServletRequest;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 

@@ -19,11 +19,17 @@ public class Employee {
         this.email = email;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        Salary = salary;
+        this.Salary = salary;
         this.department = department;
     }
 
     public Employee(String name, String email, String address, String phoneNumber, double salary, Department department) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.Salary = salary;
+        this.department = department;
     }
 
     public int getId() {

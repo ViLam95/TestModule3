@@ -27,7 +27,7 @@ public class EmployeeDAO {
     }
     public Employee findById(int id) {
         Employee employee = null;
-        String query = "select * from department where id = ?;";
+        String query = "select * from employee where id = ?;";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -47,7 +47,7 @@ public class EmployeeDAO {
         return employee;
     }
     public void addEmployee(Employee employee) {
-        String query = "insert into employee(name,email,address,phone_number,salary,id_department) values(?,?,?,?,?,?,?);";
+        String query = "insert into employee(name,email,address,phone_number,salary,id_department) values(?,?,?,?,?,?);";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, employee.getName());
             preparedStatement.setString(2, employee.getEmail());
@@ -68,8 +68,8 @@ public class EmployeeDAO {
             preparedStatement.setString(3, employee.getAddress());
             preparedStatement.setString(4, employee.getPhoneNumber());
             preparedStatement.setDouble(5,employee.getSalary());
-            preparedStatement.setLong(5, employee.getDeparment().getId());
-            preparedStatement.setLong(6, employee.getId());
+            preparedStatement.setLong(6, employee.getDeparment().getId());
+            preparedStatement.setLong(7, employee.getId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

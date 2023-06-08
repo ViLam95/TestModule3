@@ -38,6 +38,7 @@
         <thead>
         <tr>
             <th>#</th>
+            <th>Name</th>
             <th>Email</th>
             <th>Address</th>
             <th>PhoneNumber</th>
@@ -57,7 +58,7 @@
                 <td>${e.phoneNumber}</td>
                 <td>${e.deparment.name}</td>
                 <td>
-                    <a class="btn btn-warning" href="/employees?action=update&&id=${e.id}">Update</a>
+                    <a class="btn btn-warning" href="/employee?action=update&&id=${e.id}">Update</a>
                 </td>
                 <td>
                     <button class="btn btn-danger" onclick="deleteS(${e.id})">Delete</button>
