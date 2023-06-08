@@ -17,6 +17,26 @@
 </head>
 <body>
  <h1>Add new employee</h1>
+ <form method="post">
+     <p>Name</p>
+     <input type="text" name="name" value="${employee.name}">
+     <p>Email</p>
+     <input type="text" name="email" value="${employee.email}">
+     <p>Address</p>
+     <input type="text" name="address" value="${employee.address}">
+     <p>Phone number</p>
+     <input type="text" name="phone" value="${employee.phone}">
+     <p>Salary</p>
+     <input type="text" name="salary" value="${employee.salary}">
+     <p>Department</p>
+     <select name="departmentId">
+         <option>Open this select menu</option>
+         <c:forEach items="${departmentList}" var="d">
+             <option value="${d.id}">${d.name}</option>
+         </c:forEach>
+     </select><br>
+     <button class="btn btn-info" type="submit">Submit</button>
+ </form>
 
 </body>
 </html>
